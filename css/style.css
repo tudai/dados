@@ -2,3 +2,7 @@
 .btnCantDados p{
 	display: inline;
 }
+
+.btnCantDados{
+  margin: 10px;
+}
