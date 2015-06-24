@@ -5,7 +5,7 @@
 var CubileteMagico = function(){
 
 	this.cantidadDados = 1;
-	
+
 
 	this.init = function(cantidad){
 		if (!isNaN(cantidad)){
@@ -13,17 +13,17 @@ var CubileteMagico = function(){
 		}else
 			alert('Debe ingresar un valor mayor a 1');
 	}
-	
+
 	this.tirarDados = function(){
 		var d = 0,
 			suma = 0,
 		 	img_tag = "",
 		 	imagenes = $('img'),
-			mismoTurno = false; 
-		
-		
+			mismoTurno = false;
+
+
 		/*
-		 * Verificamos que si cambiaron las condiciones iniciales 
+		 * Verificamos que si cambiaron las condiciones iniciales
 		 */
 		if (imagenes.length){
 			if(imagenes.length == this.cantidadDados)
@@ -32,10 +32,10 @@ var CubileteMagico = function(){
 				mismoTurno = false;
 		} else
 			mismoTurno = false;
-				
+
 		/* Dependiendo de si se mantiene la cantidad de dados o no, es si
 		 * se vuelve a crear la estructura de imagenes o se editan solo el
-		 * atributo src. 
+		 * atributo src.
 		 */
 		if (mismoTurno)
 			imagenes.each(function(){
@@ -57,9 +57,9 @@ var CubileteMagico = function(){
 };
 
 var Regulador = function(){
-	
+
 	this.turnoActual = 1;
-	
+
 	this.cambiarDeTurno = function(){
 		if (this.turnoActual == 1){
 			$('input').attr('disabled', 'disabled');
@@ -67,33 +67,33 @@ var Regulador = function(){
 		}else{
 			this.turnoActual = 1;
 			$('input').removeAttr('disabled');
-		}	
+		}
 	};
-	
+
 	this.asignarPuntajes = function(puntaje){
 		var td_element = '<td>'+puntaje+'</td>';
-		
+
 		if (this.turnoActual == 1){
 			$('tbody').html("<tr>"+ td_element+"</tr>")
 		} else{
 			$('tr').last().append(td_element);
 		}
-			
-			
+
+
 	}
 }
 
 
 $(function(){
-	
+
 	var tirador = new CubileteMagico();
 	var admin = new Regulador();
-	
+
 
 	$('input').blur(function(){
 		tirador.init(this.value);
 	});
-	
+
 	$("#jugar").click(function(){
 		var resultado = tirador.tirarDados();
 		admin.asignarPuntajes(resultado);
