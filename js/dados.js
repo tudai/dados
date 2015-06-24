@@ -1,11 +1,11 @@
 /**
- * 
+ *
  */
 
 var tiradorDados = function(){
-	
+
 	this.cantidadDados = 0;
-	
+
 	this.tirarDados = function(){
 		alert('asdasd');
 	}
@@ -14,13 +14,21 @@ var tiradorDados = function(){
 
 $(function(){
 	var tirador = new tiradorDados();
-	
+
 	$('#numeroDados').click(function(){
+		var row = "";
 		tirador.cantidadDados = $('input').val();
-		console.log(tirador.cantidadDados);
+		for (var i = 0; i < tiradorDados.cantidadDados; i++)
+			row += '<img src="images/dado1.png">';
+			
+		$('.dados').html(row);
+
 	});
-	
-	
-	
-	
+
+
+
+
+
+
+
 })
