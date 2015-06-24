@@ -16,11 +16,15 @@ var CubileteMagico = function(){
 	
 	this.tirarDados = function(){
 		var d = 0,
-		 	img = "",
+			suma = 0,
+		 	img_tag = "",
 		 	imagenes = $('img'),
 			mismoTurno = false; 
 		
 		
+		/*
+		 * Verificamos que si cambiaron las condiciones iniciales 
+		 */
 		if (imagenes.length){
 			if(imagenes.length == this.cantidadDados)
 				mismoTurno = true;
@@ -29,19 +33,25 @@ var CubileteMagico = function(){
 		} else
 			mismoTurno = false;
 				
+		/* Dependiendo de si se mantiene la cantidad de dados o no, es si
+		 * se vuelve a crear la estructura de imagenes o se editan solo el
+		 * atributo src. 
+		 */
 		if (mismoTurno)
 			imagenes.each(function(){
 				d = Math.floor((Math.random() * 6) + 1);
+				suma += d;
 				this.src = "images/dado"+d+".png";
 			});
 		else{
 			for (var i = 0; i < this.cantidadDados; i++) {
 				d = Math.floor((Math.random() * 6) + 1);
-				img += "<img src='images/dado"+d+".png' />";
+				suma += d;
+				img_tag += "<img src='images/dado"+d+".png' />";
 			}
-			$('.dados').html(img);
+			$('.dados').html(img_tag);
 		}
-		
+		console.log(suma);
 	}
 
 }
@@ -49,6 +59,8 @@ var CubileteMagico = function(){
 $(function(){
 	
 	var tirador = new CubileteMagico();
+	
+	
 
 	$('input').blur(function(){
 		tirador.init(this.value);
