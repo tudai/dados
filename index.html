@@ -1,38 +1,32 @@
 <html>
 	<head>
 		<title>Juego de Dados</title>
-	    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+			<link rel="stylesheet" href="css/style.css">
+			<link rel="stylesheet" href="css/bootstrap-3.3.5/css/bootstrap.min.css"/>
 	</head>
 	<body>
-		 <div class="container" name="contenedor" id="contenedor">
-		 	<h1>Dados</h1>
-			<!--Agrego ids a los dados para darles comportamiento -->
-		  <p name="p1" id="p1">
-				<img name="ndado1" id="dado1" src="images/dado1.png"/>
-		  </p>
-			<p>
-				<img id="dado2" src="images/dado1.png"/>
-		  </p>
-			<!-- Un parrafo donde poner los resultados -->
-			<p id="resultado">
+		<div class="container" name="contenedor" id="contenedor">
+			<h1>Juego de Dados: </h1>
+			<div class="btnCantDados">
 
-			</p>
-			<p>
-				Cantidad de dados: <input id="cantDados" type="number" name="name" value="number"><br>
-				<button id="saveCantDados" type="button" name="button">enviar</button>
-			</p>
-			<!-- Organizados los botones en parrafos -->
-			<p>
-				<button onclick="TirarDados()">Tirar Dados</button>
-				<button onclick="TirarMuchosDados(1000000)">Tirar Muchos Dados</button>
-			</p>
-			<!-- Botones para tiradas cada cierto tiempo -->
-			<p>
-				<button onclick="EmpezarTiradas()">Empezar</button>
-				<button onclick="FrenarTiradas()">Frenar</button>
-			</p>
-		</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<tr>
+								<th>Jugador 1</th>
+								<th>Jugador 2</th>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<h3>Turno del jugador </h3>
+				</div>
+			</div>
 		<!--Incluir el archivo javascript-->
+		<script src="css/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
