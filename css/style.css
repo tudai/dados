@@ -1,7 +1,4 @@
-.jugadores{
-  float: left;
-}
 
-.juego{
-  float: right;
+.btnCantDados p{
+	display: inline;
 }

@@ -8,7 +8,7 @@ var CubileteMagico = function(){
 
 
 	this.init = function(cantidad){
-		if (!isNaN(cantidad)){
+		if (!isNaN(cantidad) && cantidad > 0){
 			this.cantidadDados = cantidad;
 		}else
 			alert('Debe ingresar un valor mayor a 1');
@@ -98,6 +98,8 @@ $(function(){
 		var resultado = tirador.tirarDados();
 		admin.asignarPuntajes(resultado);
 		admin.cambiarDeTurno();
+		$('.btnCantDados p span').html(admin.turnoActual);
+
 	});
 
 
