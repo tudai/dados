@@ -23,6 +23,7 @@ function TirarDados(){
 
 
 
+
 /*var cuenta = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];//variable donde guardar los resultados temporales
 
 function TirarDados() {
